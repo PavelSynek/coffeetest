@@ -9,13 +9,14 @@
   app = express();
 
   sendHelloWorld = function(e) {
-    console.log('handling request');
     return e.res.send('Hello World! query from url: ' + (e.req.query.query || 'nothing'));
   };
 
   _requests = new Rx.Subject();
 
-  _requests.subscribe(sendHelloWorld);
+  _requests.tap(function(e) {
+    return console.log('request to', e.req.url);
+  }).subscribe(sendHelloWorld);
 
   app.get('/', function(req, res) {
     return _requests.onNext({
@@ -25,5 +26,7 @@
   });
 
   app.listen(3000);
+
+  exports.app = app;
 
 }).call(this);
