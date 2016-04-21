@@ -1,4 +1,4 @@
-helloWorld = require('../index.coffee')
+helloWorld = require('../index')
 request = require('supertest');
 
 describe 'Hello world app', ->
