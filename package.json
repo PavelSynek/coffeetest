@@ -2,8 +2,9 @@
   "name": "coffeetest",
   "version": "1.0.0",
   "description": "just a test",
-  "main": "index.coffee",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha test"
   },
   "author": "",
