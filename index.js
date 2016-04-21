@@ -9,8 +9,8 @@
   app = express();
 
   sendHelloWorld = function(e) {
-    console.log('sending hello world');
-    return e.res.send('Hello World');
+    console.log('handling request');
+    return e.res.send('Hello World! query from url: ' + (e.req.query.query || 'nothing'));
   };
 
   _requests = new Rx.Subject();

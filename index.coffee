@@ -3,8 +3,8 @@ Rx = require('rx')
 app = express()
 
 sendHelloWorld = (e) ->
-  console.log 'sending hello world'
-  e.res.send('Hello World')
+  console.log 'handling request'
+  e.res.send('Hello World! query from url: ' + (e.req.query.query or 'nothing'))
 
 _requests = new Rx.Subject()
 _requests.subscribe(sendHelloWorld)
