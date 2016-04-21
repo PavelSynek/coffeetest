@@ -11,5 +11,9 @@
   "dependencies": {
     "express": "^4.13.4",
     "rx": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavelSynek/coffeetest"
   }
 }
