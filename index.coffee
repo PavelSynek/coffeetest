@@ -1,6 +1,14 @@
 express = require('express')
+Rx = require('rx')
 app = express()
 
-app.get('/', (req, res) -> res.send('Hello World'))
+sendHelloWorld = (e) ->
+  console.log 'sending hello world'
+  e.res.send('Hello World')
 
-app.listen(4000)
+_requests = new Rx.Subject()
+_requests.subscribe(sendHelloWorld)
+
+app.get('/', (req, res) -> _requests.onNext({req: req, res: res}))
+
+app.listen(3000)
