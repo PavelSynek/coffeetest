@@ -10,6 +10,6 @@ _requests.tap((e) -> console.log('request to', e.req.url)).subscribe(sendHelloWo
 
 app.get('/', (req, res) -> _requests.onNext({req: req, res: res}))
 
-app.listen(3000)
+app.listen(process.env.PORT or 3000)
 
 exports.app = app
